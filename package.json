@@ -1,0 +1,10 @@
+{
+  "name": "com.lawonl4b.semantic-build-versioning",
+  "version": "0.1.0",
+  "displayName": "Semantic Build Versioning",
+  "description": "Automatically updates the project version based on Conventional Commits during the Unity build process.",
+  "unity": "2021.3",
+  "author": {
+    "name": "Lawon L4B"
+  }
+}
