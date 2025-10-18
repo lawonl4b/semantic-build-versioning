@@ -24,7 +24,8 @@ jobs:
 
       - name: Run Unity EditMode Tests
         uses: game-ci/unity-test-runner@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
-          unityLicense: ${{ secrets.UNITY_LICENSE }}
           unityVersion: '6000.2.7f2' 
           testMode: 'EditMode'
