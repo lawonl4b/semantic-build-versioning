@@ -6,6 +6,7 @@ on:
   pull_request:
     branches: [ master, develop ]
   workflow_dispatch:
+
 jobs:
   test-editmode:
     runs-on: ubuntu-latest
@@ -21,6 +22,15 @@ jobs:
           key: Library-${{ hashFiles('Assets/**', 'Packages/**') }}
           restore-keys: |
             Library-
+
+      - name: Check if UNITY_LICENSE secret is available
+        run: |
+          if [ -z "${{ secrets.UNITY_LICENSE }}" ]; then
+            echo "::error::FAILURE: UNITY_LICENSE secret is NOT available or empty."
+            exit 1
+          else
+            echo "SUCCESS: UNITY_LICENSE secret was found and is not empty."
+          fi
 
       - name: Run Unity EditMode Tests
         uses: game-ci/unity-test-runner@v4
