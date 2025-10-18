@@ -33,7 +33,7 @@ jobs:
           fi
 
       - name: Run Unity EditMode Tests
-        uses: game-ci/unity-test-runner@v4
+        uses: game-ci/unity-test-runner@v3
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
