@@ -37,5 +37,5 @@ jobs:
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
-          unityVersion: '6000.2.7f2'
+          unityVersion: '2022.3.22f1'
           testMode: 'EditMode'
