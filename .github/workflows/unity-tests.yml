@@ -1,0 +1,29 @@
+name: 'Run Unity Tests'
+
+on:
+  push:
+    branches: [ master, develop ]
+  pull_request:
+    branches: [ master, develop ]
+
+jobs:
+  test-editmode:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout project code
+        uses: actions/checkout@v4
+
+      - name: Cache Unity library
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-${{ hashFiles('Assets/**', 'Packages/**') }}
+          restore-keys: |
+            Library-
+
+      - name: Run Unity EditMode Tests
+        uses: game-ci/unity-test-runner@v4
+        with:
+          unityVersion: '6000.2.7f2' 
+          testMode: 'EditMode'
