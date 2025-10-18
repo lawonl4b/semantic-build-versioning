@@ -1,0 +1,28 @@
+# .github/workflows/release.yml
+name: 'Create Release'
+
+on:
+  workflow_run:
+    workflows: ["Run Unity Tests"] # 감시할 워크플로우의 이름
+    types:
+      - completed # 워크플로우가 '완료'되었을 때
+    branches:
+      - master # 'master' 브랜치에서 실행되었을 때만
+
+jobs:
+  release:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Checkout project code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
