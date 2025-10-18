@@ -1,3 +1,7 @@
+[![Run Unity Tests](https://github.com/lawonl4b/semantic-build-versioning/actions/workflows/unity-tests.yml/badge.svg)](https://github.com/lawonl4b/semantic-build-versioning/actions/workflows/unity-tests.yml)
+[![GitHub release](https://img.shields.io/github/v/release/lawonl4b/semantic-build-versioning)](https://github.com/lawonl4b/semantic-build-versioning/releases)
+[![GitHub last commit](https://img.shields.io/github/last-commit/lawonl4b/semantic-build-versioning)](https://github.com/lawonl4b/semantic-build-versioning/commits/master)
+
 # Semantic Build Versioning for Unity
 
 이 패키지는 Unity 빌드 프로세스 중에 Git의 커밋 메시지(Conventional Commits)를 분석하여 프로젝트 버전을 자동으로 업데이트합니다.
